@@ -55,8 +55,11 @@ class Human{
     // 誰かを攻撃する
     public function attack($enemy){
         $damage = mt_rand(1, 10);
-        print $this->name . "さんが" . $enemy->name . "さんを攻撃して、" . $damage . "の体力を奪いました" . PHP_EOL;
+        print $this->name . "さんが" . $enemy->name . "さんを攻撃して" . $damage . "の体力を奪いました。" . PHP_EOL;
         $enemy->power = $enemy->power - $damage;
+        print "これにより" . $this->name . "さんの体力も2減りました。" . PHP_EOL;
+        $this->power = $this->power - 2;
+        $this->show_status();
         $enemy->show_status();
     }
     
